@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fetch API Example</title>
+</head>
+<body>
+<h1>Fetch API Example</h1>
+<form id="dataForm">
+    <input type="text" id="inputData" placeholder="Enter some data">
+    <button type="button" onclick="submitData()">Submit</button>
+</form>
+<p id="responseMessage"></p>
+<script>
+    function submitData() {
+        const data = document.getElementById("inputData").value;
+        fetch('/submitData', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("responseMessage").innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+</body>
+</html>
