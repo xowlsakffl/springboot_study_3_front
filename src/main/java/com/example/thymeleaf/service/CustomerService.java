@@ -1,10 +1,8 @@
-package com.example.sboot.service;
+package com.example.thymeleaf.service;
 
-import com.example.sboot.entity.Customer;
-import com.example.sboot.repository.CustomerRepository;
-import lombok.AllArgsConstructor;
+import com.example.thymeleaf.entity.Customer;
+import com.example.thymeleaf.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.Hibernate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,4 +1,4 @@
-package com.example.sboot.entity;
+package com.example.thymeleaf.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,14 +1,12 @@
-package com.example.sboot.controller;
+package com.example.thymeleaf.controller;
 
-import com.example.sboot.entity.Customer;
-import com.example.sboot.service.CustomerService;
-import lombok.AllArgsConstructor;
+import com.example.thymeleaf.entity.Customer;
+import com.example.thymeleaf.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;

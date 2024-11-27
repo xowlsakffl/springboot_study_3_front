@@ -1,9 +1,7 @@
-package com.example.sboot.service;
+package com.example.thymeleaf.service;
 
-import com.example.sboot.repository.BookRepository;
-import lombok.AllArgsConstructor;
+import com.example.thymeleaf.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

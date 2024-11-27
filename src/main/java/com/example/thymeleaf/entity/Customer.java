@@ -1,4 +1,4 @@
-package com.example.sboot.entity;
+package com.example.thymeleaf.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

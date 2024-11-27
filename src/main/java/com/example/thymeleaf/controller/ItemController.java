@@ -1,6 +1,6 @@
-package com.example.sboot.controller;
+package com.example.thymeleaf.controller;
 
-import com.example.sboot.entity.Item;
+import com.example.thymeleaf.entity.Item;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
