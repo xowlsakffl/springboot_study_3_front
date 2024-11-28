@@ -1,6 +1,9 @@
 package com.example.thymeleaf.service;
 
 import com.example.thymeleaf.entity.Customer;
+import com.example.thymeleaf.entity.CustomerDTO;
+import com.example.thymeleaf.entity.Review;
+import com.example.thymeleaf.entity.ReviewDTO;
 import com.example.thymeleaf.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -75,5 +79,29 @@ public class CustomerService {
     public List<Customer> getAge(int age){
           //return customerRepository.findByAgeGreaterThanEqual(age);
           return customerRepository.ageGreaterThanEqual(age);
+    }
+
+    @Transactional(readOnly = true)
+    public List<CustomerDTO> getAllCustomerWithReviews() {
+        List<Customer> customers = customerRepository.findAllWithReviews();
+        return customers.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    //Customer -> CustomerDTO
+    private CustomerDTO convertToDTO(Customer customer) {
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setId(customer.getId());
+        customerDTO.setUsername(customer.getUsername());
+        customerDTO.setReviews(customer.getReviews().stream().map(this::convertToDTO).collect(Collectors.toList()));
+        return customerDTO;
+    }
+
+    private ReviewDTO convertToDTO(Review review) {
+        ReviewDTO reviewDTO = new ReviewDTO();
+        reviewDTO.setId(reviewDTO.getId());
+        reviewDTO.setContent(review.getContent());
+        reviewDTO.setCost(review.getCost());
+        reviewDTO.setCreatedAt(review.getCreatedAt());
+        return reviewDTO;
     }
 }

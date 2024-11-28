@@ -36,4 +36,14 @@ public class MainController {
     public String doc() {
         return "doc";
     }
+
+    @GetMapping("/restjson")
+    public String restjson() {
+        return "restjson";
+    }
+
+    @GetMapping("/restjsonStatic")
+    public String restjsonStatic() {
+        return "restjsonStatic";
+    }
 }
